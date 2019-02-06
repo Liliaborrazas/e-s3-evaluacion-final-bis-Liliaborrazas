@@ -1,0 +1,16 @@
+.app__container-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.app__title{
+    color: blueviolet;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+.input{
+    background-color: pink;
+    color: black;
+    
+}

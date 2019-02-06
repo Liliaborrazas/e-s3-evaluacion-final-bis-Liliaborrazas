@@ -27,14 +27,18 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+      <div className="app__container-title">
+        <h1 className="app__title">Repos at Adalab in Github</h1>
+        <input className="input" type="text" placeholder="Search"/>
+      </div>
       <ul className="app__list">
       {this.state.repos.map(item =>{
         return(
         <li className="app__list-item">
           <div className="repos">
-           <div className="repos__name">{item.name}</div>
-           <p className="repos__info">{item.description}</p>
-           <p className="repos__language">{item.language}</p>
+            <div className="repos__name">{item.name}</div>
+            <p className="repos__info">{item.description}</p>
+            <p className="repos__language">{item.language}</p>
           </div>
         </li>
                )
