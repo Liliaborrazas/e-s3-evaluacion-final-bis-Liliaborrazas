@@ -3,38 +3,62 @@ import './App.css';
 import { fetchRepos } from './services/reposService';
 
 
-
 class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      repos: []
+      repos: [],
+      filter: ""
+
     };
 
-    this.getRepos();
+    this.filterInput=this.filterInput.bind(this); 
+    this.filterRepo=this.filterRepo.bind(this); 
   }
 
-  getRepos(){
+  
+
+  componentDidMount(){
     fetchRepos()
      .then(data => {
+       const dataRepos = data.map((item, index)=>{
+         return {...item, id:index}
+       })
        this.setState({
-         repos: data
+         repos: dataRepos
        })
      });
   }
+
+  filterRepo(e){
+    const author = e.currentTarget.value;
+    this.setState({filter:author});
+  };
+
+  filterInput(){
+    const repos = this.state.repos;
+    const filter = this.state.filter;
+    return repos.filter(item =>
+      item.name.toLowerCase().includes(filter.toLowerCase())
+      );
+  }
+
   render() {
     return (
       <div className="app">
-      <div className="app__container-title">
+      <header className="app__header">
+      <div className="app__header-container">
         <h1 className="app__title">Repos at Adalab in Github</h1>
-        <input className="input" type="text" placeholder="Search"/>
+        <input className="input-filter" type="text" placeholder="Search" onKeyUp={this.filterRepo}/>
       </div>
+      </header>
+      <main>
       <ul className="app__list">
-      {this.state.repos.map(item =>{
+      {this.filterInput().map(item =>{
         return(
-        <li className="app__list-item">
+        <li className="app__list-item" id={item.id} key={item.id}>
           <div className="repos">
             <div className="repos__name"><h2 className="repo__name"><a href={item.html_url}>{item.name}</a></h2></div>
             <div className="repos__info">{item.description}</div>
@@ -44,7 +68,7 @@ class App extends Component {
                )
       })}
       </ul>
-        
+      </main>   
       </div>
     );
   }

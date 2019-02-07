@@ -1,8 +1,8 @@
 .app__container-title{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 .app__title{
     color: blueviolet;
