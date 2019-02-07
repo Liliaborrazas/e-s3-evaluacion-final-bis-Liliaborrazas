@@ -54,17 +54,16 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-      <header className="app__header">
-      <div className="app__header-container">
-        <h1 className="app__title">Repos at Adalab in Github</h1>
-        <input className="input-filter" type="text" placeholder="Search" onKeyUp={this.getRepo}/>
-      </div>
-      <select className="app__filter-languages" onChange = {this.getSelect}>
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="JavaScript">JavaScript</option>
-			</select>
-
+       <header className="app__header">
+        <div className="app__header-container">
+          <h1 className="app__title">Repos at Adalab in Github</h1>
+          <input className="input-filter" type="text" placeholder="Search" onKeyUp={this.getRepo}/>
+          <select className="app__filter-languages" onChange = {this.getSelect}>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+          </select>
+        </div>
       </header>
       <main>
       <ul className="app__list">
