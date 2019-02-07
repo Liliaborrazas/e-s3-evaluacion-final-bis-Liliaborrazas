@@ -38,7 +38,6 @@ class App extends Component {
 
   }
   
-
   getRepo(e){
     const author = e.currentTarget.value;
     this.setState({filter:author});
