@@ -36,9 +36,9 @@ class App extends Component {
         return(
         <li className="app__list-item">
           <div className="repos">
-            <div className="repos__name">{item.name}</div>
-            <p className="repos__info">{item.description}</p>
-            <p className="repos__language">{item.language}</p>
+            <div className="repos__name"><h2 className="repo__name"><a href={item.html_url}>{item.name}</a></h2></div>
+            <div className="repos__info">{item.description}</div>
+            <div className="repos__language">{item.language}</div>
           </div>
         </li>
                )
