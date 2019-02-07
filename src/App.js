@@ -10,29 +10,36 @@ class App extends Component {
 
     this.state = {
       repos: [],
-      filter: ""
+      filter: "",
+      select: ""
 
     };
 
-    this.filterInput=this.filterInput.bind(this); 
-    this.filterRepo=this.filterRepo.bind(this); 
+    this.filterInput = this.filterInput.bind(this); 
+    this.getRepo = this.getRepo.bind(this); 
+    this.getSelect = this.getSelect.bind(this);
   }
-
-  
 
   componentDidMount(){
     fetchRepos()
      .then(data => {
        const dataRepos = data.map((item, index)=>{
-         return {...item, id:index}
-       })
+         return {...item, id:index};
+       });
        this.setState({
          repos: dataRepos
        })
      });
-  }
+    }
 
-  filterRepo(e){
+  getSelect(e){
+    const change = e.target.value;
+    this.setState({select:change})
+
+  }
+  
+
+  getRepo(e){
     const author = e.currentTarget.value;
     this.setState({filter:author});
   };
@@ -51,8 +58,14 @@ class App extends Component {
       <header className="app__header">
       <div className="app__header-container">
         <h1 className="app__title">Repos at Adalab in Github</h1>
-        <input className="input-filter" type="text" placeholder="Search" onKeyUp={this.filterRepo}/>
+        <input className="input-filter" type="text" placeholder="Search" onKeyUp={this.getRepo}/>
       </div>
+      <select className="app__filter-languages" onChange = {this.getSelect}>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+			</select>
+
       </header>
       <main>
       <ul className="app__list">
