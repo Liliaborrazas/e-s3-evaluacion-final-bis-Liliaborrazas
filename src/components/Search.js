@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 
 class Search extends Component {
@@ -15,6 +17,11 @@ class Search extends Component {
             </div>
         )
     }
+}
+
+Search.propTypes = {
+    getRepo : PropTypes.func.isRequired,
+    getSelect : PropTypes.func.isRequired
 }
 
 export default Search;

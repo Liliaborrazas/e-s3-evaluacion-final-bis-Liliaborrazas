@@ -67,12 +67,12 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-       <header className="app__header">
+        <header className="app__header">
           <Search getRepo={this.getRepo} getSelect={this.getSelect}/>
-      </header>
-      <main>
-        <RepoList filterData={this.filterData()}/>
-      </main>   
+        </header>
+        <main>
+          <RepoList filterData={this.filterData()}/>
+        </main>   
       </div>
     );
   }
