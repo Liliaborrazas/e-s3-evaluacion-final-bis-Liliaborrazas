@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { fetchRepos } from './services/reposService';
 import RepoList from './components/RepoList';
+import Search from './components/Search';
 
 
 class App extends Component {
@@ -67,31 +68,10 @@ class App extends Component {
     return (
       <div className="app">
        <header className="app__header">
-        <div className="app__header-container">
-          <h1 className="app__title">Repos at Adalab in Github</h1>
-          <input className="input-filter" type="text" placeholder="Search" onKeyUp={this.getRepo}/>
-          <select className="app__filter-languages" onChange = {this.getSelect}>
-              <option value="HTML">HTML</option>
-              <option value="CSS">CSS</option>
-              <option value="JavaScript">JavaScript</option>
-          </select>
-        </div>
+          <Search getRepo={this.getRepo} getSelect={this.getSelect}/>
       </header>
       <main>
         <RepoList filterData={this.filterData()}/>
-      {/* <ul className="app__list">
-      {this.filterData().map(item =>{
-        return(
-        <li className="app__list-item" id={item.id} key={item.id}>
-          <div className="repos">
-            <div className="repos__name"><h2 className="repo__name"><a href={item.html_url}>{item.name}</a></h2></div>
-            <div className="repos__info">{item.description}</div>
-            <div className="repos__language">{item.language}</div>
-          </div>
-        </li>
-               )
-      })}
-      </ul> */}
       </main>   
       </div>
     );
