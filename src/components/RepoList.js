@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Repo from './Repo';
+import PropTypes from 'prop-types';
 
 
 class RepoList extends Component {
@@ -16,7 +17,11 @@ class RepoList extends Component {
         </ul>)
     }
 }
+ RepoList.propTypes = { 
 
+  filterData: PropTypes.arrayOf(PropTypes.object)
+  
+ };
 
 
 export default RepoList;
