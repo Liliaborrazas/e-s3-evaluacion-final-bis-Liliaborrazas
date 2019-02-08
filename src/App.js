@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { fetchRepos } from './services/reposService';
+import RepoList from './components/RepoList';
 
 
 class App extends Component {
@@ -41,11 +42,6 @@ class App extends Component {
     this.setState({select:change})
 
   }
-  // filterSelect(){
-  //   const filtrSelect = this.state.select;
-  //   return this.filterInput().filter(item =>
-  //     item.language.includes(filterSelect))
-  // }
   
   getRepo(e){
     const author = e.currentTarget.value;
@@ -82,7 +78,8 @@ class App extends Component {
         </div>
       </header>
       <main>
-      <ul className="app__list">
+        <RepoList filterData={this.filterData()}/>
+      {/* <ul className="app__list">
       {this.filterData().map(item =>{
         return(
         <li className="app__list-item" id={item.id} key={item.id}>
@@ -94,7 +91,7 @@ class App extends Component {
         </li>
                )
       })}
-      </ul>
+      </ul> */}
       </main>   
       </div>
     );
