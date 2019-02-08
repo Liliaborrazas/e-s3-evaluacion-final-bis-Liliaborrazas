@@ -15,12 +15,16 @@ class App extends Component {
 
     };
 
-    this.filterInput = this.filterInput.bind(this); 
     this.getRepo = this.getRepo.bind(this); 
     this.getSelect = this.getSelect.bind(this);
   }
 
   componentDidMount(){
+    this.getRepos();
+
+  }
+
+  getRepos(){
     fetchRepos()
      .then(data => {
        const dataRepos = data.map((item, index)=>{
@@ -37,18 +41,30 @@ class App extends Component {
     this.setState({select:change})
 
   }
+  // filterSelect(){
+  //   const filtrSelect = this.state.select;
+  //   return this.filterInput().filter(item =>
+  //     item.language.includes(filterSelect))
+  // }
   
   getRepo(e){
     const author = e.currentTarget.value;
     this.setState({filter:author});
   };
 
-  filterInput(){
+  filterData(){
     const repos = this.state.repos;
     const filter = this.state.filter;
+    const select = this.state.select;
+
     return repos.filter(item =>
       item.name.toLowerCase().includes(filter.toLowerCase())
-      );
+      
+      ).filter(item =>{
+        return(item.language.includes(select))
+      })
+      
+      
   }
 
   render() {
@@ -67,7 +83,7 @@ class App extends Component {
       </header>
       <main>
       <ul className="app__list">
-      {this.filterInput().map(item =>{
+      {this.filterData().map(item =>{
         return(
         <li className="app__list-item" id={item.id} key={item.id}>
           <div className="repos">
