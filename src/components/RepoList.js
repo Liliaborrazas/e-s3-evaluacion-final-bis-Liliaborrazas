@@ -10,7 +10,8 @@ class RepoList extends Component {
         {this.props.filterData.map(item =>{
           return(
           <li className="app__list-item" id={item.id} key={item.id}>
-            <Repo item={item}/>
+            <Repo urlHtml={item.html_url} name={item.name} description={item.description}
+             language={item.language}/>
           </li>
                  )
         })}

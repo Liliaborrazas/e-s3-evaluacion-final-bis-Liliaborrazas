@@ -12,8 +12,8 @@ class App extends Component {
 
     this.state = {
       repos: [],
-      filter: "",
-      select: ""
+      select: "",
+      filter: ""
 
     };
 
