@@ -3,6 +3,7 @@ import './App.css';
 import { fetchRepos } from './services/reposService';
 import RepoList from './components/RepoList';
 import Search from './components/Search';
+// import RepoCard from '.components/RepoCard';
 
 
 class App extends Component {
@@ -71,6 +72,7 @@ class App extends Component {
           <Search getRepo={this.getRepo} getSelect={this.getSelect}/>
         </header>
         <main>
+          {/* <RepoCard filterData={this.filterData()} repoId={1}/> */}
           <RepoList filterData={this.filterData()}/>
         </main>   
       </div>

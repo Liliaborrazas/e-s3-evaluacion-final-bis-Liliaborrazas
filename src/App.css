@@ -42,3 +42,12 @@
     padding: 10px;
     
 }
+.btn{
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: purple;
+    color:wheat;
+    margin-top: 15px;
+    padding: 5px;
+
+}
