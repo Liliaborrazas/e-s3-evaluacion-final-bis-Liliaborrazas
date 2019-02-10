@@ -19,10 +19,10 @@ class RepoCard extends Component {
                 <div className="repos__card-name"><h2 className="repo__card-name"><a href={html_url}>{name}</a></h2></div>
                 <div className="repos__card-info">{description}</div>
                 <div className="repos__card-language">{language}</div>
-                <div className="repos__card-stargazers">Stars:{stargazers_count}</div>
-                <div className="repos__card-watchers">Watchers:{watchers}</div>
-                <div className="repos__card-forks">forks:{forks}</div>
-                <Link to="/"><button type="button">volver</button></Link>
+                <div className="repos__card-stargazers">Stars: {stargazers_count}</div>
+                <div className="repos__card-watchers">Watchers: {watchers}</div>
+                <div className="repos__card-forks">forks: {forks}</div>
+                <Link to="/"><button type="button" className="btn">volver</button></Link>
               </div>)
           }
           

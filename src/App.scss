@@ -107,3 +107,41 @@
     height: 70px;
 
 }
+.repos__card{
+    background: #EECDA3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EF629F, #EECDA3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EF629F, #EECDA3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height:100vh ;
+    font-family:  Georgia, 'Times New Roman', Times, serif; 
+
+}
+.repos__card-name{
+    font-size: 30px;
+
+}
+.repos__card-info{
+    font-size: 20px;
+    color: purple;
+    
+}
+.repos__card-language{
+    font-size: 20px;
+    color: purple;
+    
+
+}
+.repos__card-stargazers{
+    font-size: 20px;
+    color: purple;
+    
+}
+.repos__card-watchers{
+    font-size: 20px;
+    color: purple;
+    
+}
+.repos__card-forks{
+    font-size: 20px;
+    color: purple;
+    
+}
