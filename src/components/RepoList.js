@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Repo from './Repo';
 import PropTypes from 'prop-types';
 
@@ -12,7 +13,7 @@ class RepoList extends Component {
           <li className="app__list-item" id={item.id} key={item.id}>
             <Repo urlHtml={item.html_url} name={item.name} description={item.description}
              language={item.language}/>
-             <button type="button" className="btn">Ver más</button>
+             <Link to={`/repo/${item.id}`}><button type="button" className="btn">Ver más</button></Link>
           </li>
                  )
         })}

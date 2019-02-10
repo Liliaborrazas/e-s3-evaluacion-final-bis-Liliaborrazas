@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component, Fragment } from 'react';
+import {Switch, Route} from 'react-router-dom';
+import './App.scss';
 import { fetchRepos } from './services/reposService';
 import RepoList from './components/RepoList';
 import Search from './components/Search';
-// import RepoCard from '.components/RepoCard';
+import RepoCard from './components/RepoCard';
 
 
 class App extends Component {
@@ -66,15 +67,25 @@ class App extends Component {
   }
 
   render() {
+    const repoResults = this.filterData()
     return (
       <div className="app">
-        <header className="app__header">
-          <Search getRepo={this.getRepo} getSelect={this.getSelect}/>
-        </header>
-        <main>
-          {/* <RepoCard filterData={this.filterData()} repoId={1}/> */}
-          <RepoList filterData={this.filterData()}/>
-        </main>   
+      <Switch>
+          <Route exact path="/" render={()=>(
+            <Fragment>
+              <header className="app__header">
+                <Search getRepo={this.getRepo} getSelect={this.getSelect}/>
+              </header>
+              <main>
+                <RepoList filterData={repoResults}/>
+              </main>   
+            </Fragment>
+
+          )}/>
+           <Route path="/repo/:id" render={props=>(
+           <RepoCard match={props.match}repos={this.state.repos}/>
+           )}/>
+      </Switch>
       </div>
     );
   }
