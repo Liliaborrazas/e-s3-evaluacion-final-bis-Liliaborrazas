@@ -13,7 +13,7 @@ class RepoList extends Component {
           <li className="app__list-item" id={item.id} key={item.id}>
             <Repo urlHtml={item.html_url} name={item.name} description={item.description}
              language={item.language}/>
-             <Link to={`/repo/${item.id}`}><button type="button" className="btn">Ver más</button></Link>
+            <Link to={`/repo/${item.id}`}><button type="button" className="btn">Ver más</button></Link>
           </li>
                  )
         })}
