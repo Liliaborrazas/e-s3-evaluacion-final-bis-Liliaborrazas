@@ -15,12 +15,14 @@ class App extends Component {
     this.state = {
       repos: [],
       select: "",
-      filter: ""
+      filter: "",
+      star: 0
 
     };
 
     this.getRepo = this.getRepo.bind(this); 
     this.getSelect = this.getSelect.bind(this);
+    this.getStar = this.getStar.bind(this); 
   }
 
   componentDidMount(){
@@ -55,6 +57,7 @@ class App extends Component {
     const repos = this.state.repos;
     const filter = this.state.filter;
     const select = this.state.select;
+    
 
     return repos.filter(item =>
       item.name.toLowerCase().includes(filter.toLowerCase())
@@ -62,9 +65,22 @@ class App extends Component {
       ).filter(item =>{
         return(item.language.includes(select))
       })
+      .filter(item =>{
+        return(item.stargazers_count >= this.state.star)
+      })
       
       
   }
+  getStar(e){
+    const author = e.currentTarget.value;
+    let result = parseInt(author);
+    if(author === "" ){
+      result = 0
+    }
+    this.setState({star:result})
+  }
+  
+
 
   render() {
     const repoResults = this.filterData()
@@ -74,7 +90,7 @@ class App extends Component {
           <Route exact path="/" render={()=>(
             <Fragment>
               <header className="app__header">
-                <Search getRepo={this.getRepo} getSelect={this.getSelect}/>
+                <Search getRepo={this.getRepo} getSelect={this.getSelect} getStar={this.getStar}/>
               </header>
               <main>
                 <RepoList filterData={repoResults}/>
